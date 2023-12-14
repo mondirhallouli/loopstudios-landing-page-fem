@@ -1,0 +1,159 @@
+@use "../utils" as u;
+@use "../general" as g;
+
+.footer {
+    background-color: g.$black;
+    padding: u.rem(72) u.rem(58);
+
+    &__wrapper {
+        max-width: u.rem(1110);
+        margin-inline: auto;
+        margin-bottom: u.rem(64);
+
+        @include u.breakpoints-up("large") {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    &__logo {
+        display: block;
+        width: u.rem(184);
+        margin-bottom: u.rem(50);
+        margin-inline: auto;
+
+        @include u.breakpoints-up("large") {
+            margin-inline: initial;
+            margin-bottom: u.rem(32);
+        }
+    }
+
+    &__sitemap {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: u.rem(30);
+        margin-bottom: u.rem(50);
+
+        @include u.breakpoints-up("large") {
+            flex-direction: row;
+            justify-content: start;
+            margin-bottom: 0;
+        }
+
+        a {
+            font-family: g.$font-alata;
+            font-size: u.rem(18);
+            text-decoration: none;
+            color: g.$white;
+            position: relative;
+
+            &:hover::after {
+                content: '';
+                display: block;
+                width: 0%;
+                height: 2px;
+                border-radius: 1px;
+                background-color: g.$white;
+                position: absolute;
+                bottom: u.rem(-11);
+                animation-name: navLinkBorderFade;
+                animation-duration: 250ms;
+                animation-fill-mode: both;
+                left: 25%;
+            }
+        }
+    }
+
+    &__socials {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: u.rem(20);
+        margin-bottom: u.rem(32);
+
+        @include u.breakpoints-up("large") {
+            justify-content: end;
+        }
+
+        a {
+            display: inline-block;
+            width: u.rem(32);
+            height: u.rem(32);
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            &:hover::after {
+                content: '';
+                display: block;
+                width: 0%;
+                height: 2px;
+                border-radius: 1px;
+                background-color: g.$white;
+                position: absolute;
+                bottom: u.rem(-14);
+                animation-name: socialsBorderFade;
+                animation-duration: 250ms;
+                animation-fill-mode: both;
+                left: 0;
+            }
+        }
+    }
+
+    &__attr,
+    &__copyright {
+        font-family: g.$font-alata;
+        font-size: u.rem(15);
+        text-align: center;
+        color: g.$dark-gray;
+    }
+
+    &__copyright {
+        @include u.breakpoints-up("large") {
+            text-align: right;
+        }
+    }
+
+
+
+    &__attr {
+        a {
+            color: g.$white;
+            text-decoration: none;
+            transition: color 250ms ease-in-out;
+        }
+
+        a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+    }
+}
+
+// ANIMATION FOR THE NAVIGATION LINKS' BOTTOM BAR
+@keyframes navLinkBorderFade {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 50%;
+    }
+}
+
+// footer social icons bottom border animation
+@keyframes socialsBorderFade {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

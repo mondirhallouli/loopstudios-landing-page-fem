@@ -1,0 +1,123 @@
+@use '../utils' as u;
+@use '../general' as g;
+
+.header {
+    padding: u.rem(50) u.rem(30) u.rem(206);
+    margin-bottom: u.rem(120);
+    background-image: url('/images/mobile/image-hero.jpg');
+    background-color: rgba(0, 0, 0, 0.1);
+    background-blend-mode: darken;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+
+    @include u.breakpoints-up("large") {
+        background-image: url('/images/desktop/image-hero.jpg');
+        background-color: rgba(0, 0, 0, 0.3);
+        padding-bottom: u.rem(146);
+    }
+
+    // NAVBAR STYLES
+    .nav {
+        max-width: u.rem(1110);
+        margin-inline: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: u.rem(206);
+
+        @include u.breakpoints-up("large") {
+            margin-bottom: u.rem(130);
+        }
+
+        // MOBILE MENU BUTTON
+        &__menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            @include u.breakpoints-up("medium") {
+                display: none;
+            }
+        }
+
+        // DESKTOP MENU STYLES
+        &__menu {
+            display: none;
+            list-style: none;
+
+            @include u.breakpoints-up("medium") {
+                display: block;
+            }
+
+            li {
+                display: inline-block;
+
+                &:not(:last-child) {
+                    margin-right: u.rem(30);
+                }
+            }
+
+            a {
+                display: inline-block;
+                padding: u.rem(14) 0;
+                position: relative;
+                font-family: g.$font-alata;
+                text-decoration: none;
+                font-size: u.rem(15);
+                color: white;
+
+                &:hover::after {
+                    content: '';
+                    display: block;
+                    width: 0%;
+                    height: 2px;
+                    border-radius: 1px;
+                    background-color: g.$white;
+                    position: absolute;
+                    bottom: 0;
+                    animation-name: navLinkBorderFade;
+                    animation-duration: 250ms;
+                    animation-fill-mode: both;
+                    left: 25%;
+                }
+            }
+        }
+    }
+
+    // HEADER TEXT STYLES
+    &__hero {
+        max-width: u.rem(1110);
+        margin-inline: auto;
+
+        &-text {
+            border: solid 3px g.$white;
+            max-width: u.rem(648);
+            padding: u.rem(28);
+            font-family: g.$font-josefin;
+            font-size: u.rem(38);
+            text-transform: uppercase;
+            color: g.$white;
+
+            @include u.breakpoints-up("small") {
+                font-size: u.rem(66);
+            }
+
+            @include u.breakpoints-up("large") {
+                font-size: u.rem(70);
+            }
+        }
+    }
+}
+
+// ANIMATION FOR THE NAVIGATION LINKS' BOTTOM BAR
+@keyframes navLinkBorderFade {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 50%;
+    }
+}

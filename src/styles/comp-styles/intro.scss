@@ -1,0 +1,68 @@
+@use '../utils' as u;
+@use '../general' as g;
+
+.intro {
+    max-width: u.rem(1110);
+    margin-inline: auto;
+    margin-bottom: u.rem(130);
+    padding-inline: u.rem(30);
+    position: relative;
+
+    @include u.breakpoints-up("large") {
+        margin-bottom: u.rem(180);
+    }
+
+    &__image {
+        max-width: u.rem(348);
+        margin-inline: auto;
+
+        @include u.breakpoints-up("small") {
+            max-width: u.rem(500);
+        }
+
+        @include u.breakpoints-up("large") {
+            max-width: u.rem(730);
+            margin-inline: initial;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__content {
+        max-width: u.rem(348);
+        margin-inline: auto;
+        background-color: g.$white;
+        padding: u.rem(64) 0 0;
+        text-align: center;
+
+        @include u.breakpoints-up("large") {
+            max-width: u.rem(548);
+            padding: u.rem(96) 0 0 u.rem(100);
+            text-align: left;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+    }
+
+    &__title {
+        font-family: g.$font-josefin;
+        font-size: u.rem(38);
+        font-weight: normal;
+        text-transform: uppercase;
+        margin-bottom: u.rem(16);
+
+        @include u.breakpoints-up("large") {
+            font-size: u.rem(46);
+            margin-bottom: u.rem(30);
+        }
+    }
+
+    &__desc {
+        font-family: g.$font-alata;
+        font-size: u.rem(15);
+        color: g.$dark-gray;
+    }
+}

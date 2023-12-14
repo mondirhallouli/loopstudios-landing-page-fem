@@ -1,0 +1,52 @@
+@use '../utils' as u;
+@use '../general' as g;
+
+.mobile-menu {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    background-color: g.$black;
+    padding: u.rem(70) u.rem(30);
+    transition: all 250ms ease-in-out;
+    z-index: 1000;
+    overflow: hidden;
+
+    &__top-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: u.rem(200);
+
+        button {
+            display: inline-block;
+            position: relative;
+            width: u.rem(40);
+            height: u.rem(40);
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    &__list {
+        list-style: none;
+
+        li {
+            margin-bottom: u.rem(60);
+        }
+
+        a {
+            font-family: g.$font-josefin;
+            font-size: u.rem(40);
+            text-transform: uppercase;
+            text-decoration: none;
+            color: g.$white;
+        }
+    }
+}
