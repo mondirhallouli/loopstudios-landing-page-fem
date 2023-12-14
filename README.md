@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Links
 
-- Solution: [here](https://www.github.com/)
-- Live Site: [here](https://your-live-site-url.com)
+- Solution: [here](https://github.com/mondirhallouli/loopstudios-landing-page-fem)
+- Live Site: [here](https://loopstudios-landing-page-fem.pages.dev/)
 
 ## My process
 
@@ -50,7 +50,7 @@ My maine focus here is to create a responsive one page website, the challenge wa
 ### Useful resources
 
 - [SASS Docs](https://www.sass-lang.com/documentation) - This helped me with sass mixins and functions.
-- [MDN Docs](https://www.mdn.net) - This was a great resource for miscellanious things like specific css props and JS functions.
+- [MDN Docs](https://www.mozilla.developer.org) - This was a great resource for miscellanious things like specific css props and JS functions.
 
 ## Author
 
